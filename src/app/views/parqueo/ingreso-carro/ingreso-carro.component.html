@@ -1,0 +1,28 @@
+<div>
+  <h4 style="margin-top: 10px">Ingreso de vehiculo - Carro</h4>
+  <hr>
+  <form autocomplete="off" [formGroup]="formIngreso" (ngSubmit)="onEnviar()" novalidate>
+    <div class="form-group">
+      <label for="atributoPlaca" class="required">Placa de Vehiculo</label>
+      <input formControlName="placa" type="text" class="form-control" id="atributoPlaca" placeholder="Ingresar placa">
+      <div class="invalid-feedback">
+        Debe Ingresar la placa del vehiculo
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="atributoModelo" class="required">Modelo de Vehiculo</label>
+      <input formControlName="modelo" type="text" class="form-control" id="atributoModelo" placeholder="Ingresar modelo">
+      <div class="invalid-feedback">
+        Debe Ingresar el modelo del vehiculo
+      </div>
+    </div>
+    <div class="container-buttons">
+      <button type="submit" class="btn btn-primary">
+        <fa-icon [icon]="guardarIcon"></fa-icon> Registrar
+      </button>
+      <button type="reset" class="btn btn-danger">
+        <fa-icon [icon]="cancelarIcon"></fa-icon> Cancelar
+      </button>
+    </div>
+  </form>
+</div>

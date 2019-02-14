@@ -1,0 +1,66 @@
+<div>
+  <h4 style="margin-top: 10px">Listado de Vehiculos</h4>
+  <hr>
+  <table class="table table-bordered table-sm" *ngIf="resultado.length">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Placa</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Fecha Ingreso</th>
+        <th scope="col" style="width: 150px;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entrada of resultado">
+        <th scope="row">{{ entrada.vehiculo.placa }}</th>
+        <td>{{ entrada.tipo }}</td>
+        <td>{{ entrada.fechaEntrada | date:'medium' }}</td>
+        <td style="width: 150px;">
+          <button class="btn btn-primary btn-sm" (click)="abrirDetalle(detalleModal,entrada)">
+            <fa-icon [icon]="detalleIcon"></fa-icon>
+            Detalle Entrada
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    <ngb-alert [dismissible]="false" type="danger" *ngIf="!resultado.length">
+      <strong>No hay regiistros!</strong> No se encontraron registros de entradas
+    </ngb-alert>
+  </p>
+
+</div>
+
+<ng-template #detalleModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Registrar Salida</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group" >
+      Placa: <strong>{{ entradaCurrent.vehiculo.placa }}</strong>
+    </div>
+    <div class="form-group">
+      Tipo: <strong>{{ entradaCurrent.tipo }}</strong>
+    </div>
+    <div class="form-group" *ngIf="entradaCurrent.vehiculo.modelo != null">
+      Modelo: <strong>{{ entradaCurrent.vehiculo.modelo }}</strong>
+    </div>
+    <div class="form-group" *ngIf=" entradaCurrent.vehiculo.cilindraje != null">
+      Cilindraje: <strong>{{ entradaCurrent.vehiculo.cilindraje }}</strong>
+    </div>
+    <div class="form-group" >
+      Fecha: <strong>{{ entradaCurrent.fechaEntrada | date:'medium' }}</strong>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary btn-sm" (click)="generarSalida()">
+      <fa-icon [icon]="salidaIcon"></fa-icon>
+      Registrar
+    </button>
+  </div>
+</ng-template>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "parqueadero-fe": {
+    "parqueadero-front": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,19 +17,23 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/parqueadero-fe",
+            "outputPath": "dist/parqueadero-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "assets": [
+            "assets": [ 
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
@@ -62,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "parqueadero-fe:build"
+            "browserTarget": "parqueadero-front:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "parqueadero-fe:build:production"
+              "browserTarget": "parqueadero-front:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "parqueadero-fe:build"
+            "browserTarget": "parqueadero-front:build"
           }
         },
         "test": {
@@ -107,7 +111,7 @@
         }
       }
     },
-    "parqueadero-fe-e2e": {
+    "parqueadero-front-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +120,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "parqueadero-fe:serve"
+            "devServerTarget": "parqueadero-front:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "parqueadero-fe:serve:production"
+              "devServerTarget": "parqueadero-front:serve:production"
             }
           }
         },
@@ -136,5 +140,5 @@
       }
     }
   },
-  "defaultProject": "parqueadero-fe"
+  "defaultProject": "parqueadero-front"
 }
