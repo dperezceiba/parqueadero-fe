@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display parqueadero-front!', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to parqueadero-front!');
+    expect(page.getTitleText()).toEqual('Ceiba Parqueadero');
   });
 
   afterEach(async () => {

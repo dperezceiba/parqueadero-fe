@@ -6,7 +6,7 @@ import { DefaultLayoutComponent } from './views/default-layout/default-layout.co
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'parqueo',
     pathMatch: 'full',
   },
   {
@@ -17,10 +17,6 @@ const routes: Routes = [
       title: 'Home'
     },
     children: [
-      {
-        path: 'dashboard',
-        loadChildren: './views/dashboard/dashboard.module#DashboardModule'
-      },
       {
         path: 'parqueo',
         loadChildren: './views/parqueo/parqueo.module#ParqueoModule'

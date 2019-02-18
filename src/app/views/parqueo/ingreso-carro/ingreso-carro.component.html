@@ -3,15 +3,15 @@
   <hr>
   <form autocomplete="off" [formGroup]="formIngreso" (ngSubmit)="onEnviar()" novalidate>
     <div class="form-group">
-      <label for="atributoPlaca" class="required">Placa de Vehiculo</label>
-      <input formControlName="placa" type="text" class="form-control" id="atributoPlaca" placeholder="Ingresar placa">
+      <label for="placa" class="required">Placa de Vehiculo</label>
+      <input formControlName="placa" type="text" class="form-control" name="placa" placeholder="Ingresar placa">
       <div class="invalid-feedback">
         Debe Ingresar la placa del vehiculo
       </div>
     </div>
     <div class="form-group">
-      <label for="atributoModelo" class="required">Modelo de Vehiculo</label>
-      <input formControlName="modelo" type="text" class="form-control" id="atributoModelo" placeholder="Ingresar modelo">
+      <label for="modelo" class="required">Modelo de Vehiculo</label>
+      <input formControlName="modelo" type="text" class="form-control" name="modelo" placeholder="Ingresar modelo">
       <div class="invalid-feedback">
         Debe Ingresar el modelo del vehiculo
       </div>

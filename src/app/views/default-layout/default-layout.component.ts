@@ -12,11 +12,6 @@ export class DefaultLayoutComponent implements OnInit {
 
   opciones: any[] = [
     {
-      titulo: 'Dashboard',
-      path: '',
-      icono: faTachometerAlt
-    },
-    {
       titulo: 'Estado',
       path: '/parqueo/estado',
       icono: faListUl
